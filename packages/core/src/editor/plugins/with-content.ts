@@ -24,6 +24,17 @@ import { EDITOR_TO_SELECTION, NODE_TO_KEY } from '../../utils/weak-maps'
 import { DomEditor } from '../dom-editor'
 import { ElementWithId } from '../interface'
 
+const getMatches = (e: IDomEditor, path: Path) => {
+  const matches: [Path, Key][] = []
+
+  for (const [n, p] of Editor.levels(e, { at: path })) {
+    const key = DomEditor.findKey(e, n)
+
+    matches.push([p, key])
+  }
+  return matches
+}
+
 /**
  * 把 elem 插入到编辑器
  * @param editor editor
@@ -56,55 +67,48 @@ export const withContent = <T extends Editor>(editor: T) => {
     insertText(text)
   }
 
-  // 重写 apply 方法
-  // apply 方法非常重要，它最终执行 operation https://docs.slatejs.org/concepts/05-operations
-  // operation 的接口定义参考 slate src/interfaces/operation.ts
+  // 重写 apply 方法，参考 slate 最新版本的实现
   e.apply = (op: Operation) => {
     const matches: [Path, Key][] = []
 
     switch (op.type) {
       case 'insert_text':
       case 'remove_text':
-      case 'set_node': {
-        for (const [node, path] of Editor.levels(e, { at: op.path })) {
-          // 在当前节点寻找
-          const key = DomEditor.findKey(e, node)
-
-          matches.push([path, key])
-        }
+      case 'set_node':
+      case 'split_node': {
+        matches.push(...getMatches(e, op.path))
         break
       }
 
       case 'insert_node':
-      case 'remove_node':
-      case 'merge_node':
-      case 'split_node': {
-        for (const [node, path] of Editor.levels(e, { at: Path.parent(op.path) })) {
-          // 在父节点寻找
-          const key = DomEditor.findKey(e, node)
+      case 'remove_node': {
+        matches.push(...getMatches(e, Path.parent(op.path)))
+        break
+      }
 
-          matches.push([path, key])
-        }
+      case 'merge_node': {
+        const prevPath = Path.previous(op.path)
+
+        matches.push(...getMatches(e, prevPath))
         break
       }
 
       case 'move_node': {
-        for (const [node, path] of Editor.levels(e, {
-          at: Path.common(Path.parent(op.path), Path.parent(op.newPath)),
-        })) {
-          const key = DomEditor.findKey(e, node)
+        const commonPath = Path.common(
+          Path.parent(op.path),
+          Path.parent(op.newPath),
+        )
 
-          matches.push([path, key])
-        }
+        matches.push(...getMatches(e, commonPath))
         break
       }
       default:
     }
 
-    // 执行原本的 apply - 重要！！！
+    // 执行原本的 apply
     apply(op)
 
-    // 绑定 node 和 key
+    // 更新 node 和 key 的映射
     for (const [path, key] of matches) {
       const [node] = Editor.node(e, path)
 
@@ -112,6 +116,7 @@ export const withContent = <T extends Editor>(editor: T) => {
     }
   }
 
+  // 重写 deleteBackward，参考 slate 最新版本的实现
   e.deleteBackward = unit => {
     if (unit !== 'line') {
       return deleteBackward(unit)
@@ -125,7 +130,11 @@ export const withContent = <T extends Editor>(editor: T) => {
 
       if (parentBlockEntry) {
         const [, parentBlockPath] = parentBlockEntry
-        const parentElementRange = Editor.range(editor, parentBlockPath, editor.selection.anchor)
+        const parentElementRange = Editor.range(
+          editor,
+          parentBlockPath,
+          editor.selection.anchor,
+        )
 
         const currentLineRange = findCurrentLineRange(e, parentElementRange)
 

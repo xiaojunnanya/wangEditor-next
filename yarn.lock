@@ -3505,7 +3505,7 @@ __metadata:
     dom7: ^3.0.0 || ^4.0.0
     lodash.throttle: ^4.1.1
     nanoid: ^5.0.0
-    slate: ^0.72.0
+    slate: ^0.82.0
     snabbdom: ^3.6.0
   languageName: unknown
   linkType: soft
@@ -3519,7 +3519,7 @@ __metadata:
   peerDependencies:
     "@wangeditor-next/core": 1.7.33
     dom7: ^3.0.0 || ^4.0.0
-    slate: ^0.72.0
+    slate: ^0.82.0
     snabbdom: ^3.6.0
   languageName: unknown
   linkType: soft
@@ -3548,7 +3548,7 @@ __metadata:
     lodash.throttle: ^4.1.1
     lodash.toarray: ^4.4.0
     nanoid: ^5.0.0
-    slate: ^0.72.0
+    slate: ^0.82.0
     snabbdom: ^3.6.0
   languageName: unknown
   linkType: soft
@@ -3590,7 +3590,7 @@ __metadata:
     lodash.throttle: "npm:^4.1.1"
     lodash.toarray: "npm:^4.4.0"
     nanoid: "npm:^5.0.0"
-    slate: "npm:^0.72.0"
+    slate: "npm:^0.82.0"
     snabbdom: "npm:^3.6.0"
   languageName: unknown
   linkType: soft
@@ -3601,7 +3601,7 @@ __metadata:
   peerDependencies:
     "@wangeditor-next/core": 1.7.33
     dom7: ^3.0.0 || ^4.0.0
-    slate: ^0.72.0
+    slate: ^0.82.0
     snabbdom: ^3.6.0
   languageName: unknown
   linkType: soft
@@ -3612,7 +3612,7 @@ __metadata:
   peerDependencies:
     "@wangeditor-next/editor": 5.6.33
     dom7: ^3.0.0 || ^4.0.0
-    slate: ^0.72.0
+    slate: ^0.82.0
     snabbdom: ^3.6.0
   languageName: unknown
   linkType: soft
@@ -3637,7 +3637,7 @@ __metadata:
   peerDependencies:
     "@wangeditor-next/editor": 5.6.33
     dom7: ^3.0.0 || ^4.0.0
-    slate: ^0.72.0
+    slate: ^0.82.0
     snabbdom: ^3.6.0
   languageName: unknown
   linkType: soft
@@ -3648,7 +3648,7 @@ __metadata:
   peerDependencies:
     "@wangeditor-next/editor": 5.6.33
     dom7: ^3.0.0 || ^4.0.0
-    slate: ^0.72.0
+    slate: ^0.82.0
     snabbdom: ^3.6.0
   languageName: unknown
   linkType: soft
@@ -3672,7 +3672,7 @@ __metadata:
     lodash.isequal: ^4.5.0
     lodash.throttle: ^4.1.1
     nanoid: ^5.0.0
-    slate: ^0.72.0
+    slate: ^0.82.0
     snabbdom: ^3.6.0
   languageName: unknown
   linkType: soft
@@ -3687,7 +3687,7 @@ __metadata:
     "@wangeditor-next/core": 1.7.33
     dom7: ^3.0.0 || ^4.0.0
     lodash.foreach: ^4.5.0
-    slate: ^0.72.0
+    slate: ^0.82.0
     snabbdom: ^3.6.0
   languageName: unknown
   linkType: soft
@@ -3701,7 +3701,7 @@ __metadata:
     "@wangeditor-next/core": 1.7.33
     dom7: ^3.0.0 || ^4.0.0
     nanoid: ^5.0.0
-    slate: ^0.72.0
+    slate: ^0.82.0
     snabbdom: ^3.6.0
   languageName: unknown
   linkType: soft
@@ -3793,7 +3793,7 @@ __metadata:
     "@wangeditor-next/editor": 5.6.33
     "@wangeditor-next/yjs": ^0.1.31
     react: ">=17.0.2"
-    slate: ^0.72.0
+    slate: ^0.82.0
     yjs: ^13.5.29
   languageName: unknown
   linkType: soft
@@ -3802,13 +3802,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@wangeditor-next/yjs@workspace:packages/yjs"
   dependencies:
-    slate: "npm:^0.72.0"
+    slate: "npm:^0.82.0"
     typescript: "npm:^5.0.0"
     y-protocols: "npm:^1.0.5"
     yjs: "npm:^13.5.29"
   peerDependencies:
     "@wangeditor-next/core": 1.7.33
-    slate: ^0.72.0
+    slate: ^0.82.0
     yjs: ^13.5.29
   languageName: unknown
   linkType: soft
@@ -11832,14 +11832,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slate@npm:^0.72.0":
-  version: 0.72.0
-  resolution: "slate@npm:0.72.0"
+"slate@npm:^0.82.0":
+  version: 0.82.1
+  resolution: "slate@npm:0.82.1"
   dependencies:
     immer: "npm:^9.0.6"
     is-plain-object: "npm:^5.0.0"
     tiny-warning: "npm:^1.0.3"
-  checksum: 10c0/9e22107270909ab616669273920dbccea25bc145a3b5d4c3b91b144d307c726f577ae4f3afe684fe9974ad3534287a64a1e66fafa35530e6ebfb8f53f4c44c3f
+  checksum: 10c0/f0d64467c66f4399de147c16c6232ea4e4defea1f9ae0e0e6adedb910fa3af5005af94f1f852a68cefc3145651e1c1227dd455ca81b00b8681188fcba18216b6
   languageName: node
   linkType: hard
 
