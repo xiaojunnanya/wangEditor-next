@@ -1,14 +1,15 @@
 import '@wangeditor-next/editor/dist/css/style.css'
 
 import {
-  Boot, IDomEditor, IEditorConfig, IToolbarConfig,
+  Boot,
+  IDomEditor, IEditorConfig, IToolbarConfig,
+  SlateDescendant,
 } from '@wangeditor-next/editor'
 import { Editor, Toolbar } from '@wangeditor-next/editor-for-react'
 import {
   slateNodesToInsertDelta, withYHistory, withYjs, YjsEditor,
 } from '@wangeditor-next/yjs'
 import React, { useEffect, useState } from 'react'
-import { Descendant } from 'slate'
 import { WebsocketProvider } from 'y-websocket'
 import * as Y from 'yjs'
 
@@ -26,7 +27,7 @@ wsProvider.on('status', event => {
   console.log(event.status)
 })
 
-const initialValue: Descendant[] = [
+const initialValue: SlateDescendant[] = [
   {
     type: 'paragraph',
     children: [{ text: 'hello' }],

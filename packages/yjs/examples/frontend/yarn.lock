@@ -1363,7 +1363,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.23.2":
+  version: 7.26.9
+  resolution: "@babel/runtime@npm:7.26.9"
+  dependencies:
+    regenerator-runtime: "npm:^0.14.0"
+  checksum: 10c0/e8517131110a6ec3a7360881438b85060e49824e007f4a64b5dfa9192cf2bb5c01e84bfc109f02d822c7edb0db926928dd6b991e3ee460b483fb0fac43152d9b
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.8.4":
   version: 7.25.6
   resolution: "@babel/runtime@npm:7.25.6"
   dependencies:
@@ -3587,50 +3596,50 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wangeditor-next/basic-modules@npm:^1.5.2":
-  version: 1.5.2
-  resolution: "@wangeditor-next/basic-modules@npm:1.5.2"
+"@wangeditor-next/basic-modules@npm:~1.5.33":
+  version: 1.5.33
+  resolution: "@wangeditor-next/basic-modules@npm:1.5.33"
   dependencies:
     is-url: "npm:^1.2.4"
   peerDependencies:
-    "@wangeditor-next/core": 1.x
-    dom7: ^3.0.0
+    "@wangeditor-next/core": 1.7.33
+    dom7: ^3.0.0 || ^4.0.0
     lodash.throttle: ^4.1.1
     nanoid: ^5.0.0
     slate: ^0.72.0
-    snabbdom: ^3.1.0
-  checksum: 10c0/2e3435413b4576994be78c1e1f06ac9bf81862dec312faf02986a977afe7a77dc9895243ab1275d01a54dae467eff9a77f67e592049597c34e29974a4be35e29
+    snabbdom: ^3.6.0
+  checksum: 10c0/99c8d3c7fab59dd688e29badf90bac1698df65575545defc484eec890084a600b85bcad7cb15e81c3cbe41a25c1eab5dfbc532887ea176a3c1c5441818cc0c9c
   languageName: node
   linkType: hard
 
-"@wangeditor-next/code-highlight@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@wangeditor-next/code-highlight@npm:1.3.0"
+"@wangeditor-next/code-highlight@npm:~1.3.30":
+  version: 1.3.30
+  resolution: "@wangeditor-next/code-highlight@npm:1.3.30"
   dependencies:
     prismjs: "npm:^1.23.0"
   peerDependencies:
-    "@wangeditor-next/core": 1.x
-    dom7: ^3.0.0
+    "@wangeditor-next/core": 1.7.33
+    dom7: ^3.0.0 || ^4.0.0
     slate: ^0.72.0
-    snabbdom: ^3.1.0
-  checksum: 10c0/cbb3cae360afe7e3f97e1d33d3aab4004a352bf8037ac1ff0ae0a3c407bf0d5b33bfcc45f79aea070df815b7a09aca3243169bbc233498ea746abd62c247b595
+    snabbdom: ^3.6.0
+  checksum: 10c0/2823b42cf4d12a996382b5ab1e81eb45d2bd95b1a1cfa2dedd9f5f8ddc0ba5846bc85f45243c1c46f5670b000c3c5f5e1631f5489d0d49a5ba5a08cc192f71cd
   languageName: node
   linkType: hard
 
-"@wangeditor-next/core@npm:^1.7.3":
-  version: 1.7.3
-  resolution: "@wangeditor-next/core@npm:1.7.3"
+"@wangeditor-next/core@npm:~1.7.33":
+  version: 1.7.33
+  resolution: "@wangeditor-next/core@npm:1.7.33"
   dependencies:
     "@types/event-emitter": "npm:^0.3.3"
     event-emitter: "npm:^0.3.5"
-    html-void-elements: "npm:^2.0.0"
-    i18next: "npm:^20.4.0"
-    scroll-into-view-if-needed: "npm:^2.2.28"
-    slate-history: "npm:^0.66.0"
+    html-void-elements: "npm:^3.0.0"
+    i18next: "npm:^23.0.0"
+    scroll-into-view-if-needed: "npm:^3.0.0"
+    slate-history: "npm:^0.109.0"
   peerDependencies:
     "@uppy/core": ^2.1.1
     "@uppy/xhr-upload": ^2.0.3
-    dom7: ^3.0.0
+    dom7: ^3.0.0 || ^4.0.0
     is-hotkey: ^0.2.0
     lodash.camelcase: ^4.3.0
     lodash.clonedeep: ^4.5.0
@@ -3641,37 +3650,37 @@ __metadata:
     lodash.toarray: ^4.4.0
     nanoid: ^5.0.0
     slate: ^0.72.0
-    snabbdom: ^3.1.0
-  checksum: 10c0/0bf488c0377a10fe795d7e0e9a267194b72acd5d93624c720ee598679de5a27797093a9c472ce48aca52c786c9bd00c2a4b49671ff1c99dff496f791c6d0b4e0
+    snabbdom: ^3.6.0
+  checksum: 10c0/d922c6e6659389817fd40b1af162e4675bd22add804525bca20d14af60c3528641d4735d4c1f731c3b5900af184c28ef7a79f897db6c050301a64e8727ecea38
   languageName: node
   linkType: hard
 
-"@wangeditor-next/editor-for-react@npm:^1.0.2":
-  version: 1.0.8
-  resolution: "@wangeditor-next/editor-for-react@npm:1.0.8"
+"@wangeditor-next/editor-for-react@npm:latest":
+  version: 1.0.9
+  resolution: "@wangeditor-next/editor-for-react@npm:1.0.9"
   peerDependencies:
     "@wangeditor-next/core": ">=1.5.5"
     "@wangeditor-next/editor": ">=5.3.12"
     react: ">=17.0.2"
     react-dom: ">=17.0.2"
-  checksum: 10c0/f8370ae63379a64a199750bd245e82ba5eae267108120b4f1abdccbd9ba6f20243df37d6f97cfba44a91d8dff2642738649ee21b89af5e9c5a91bbd426ebdf79
+  checksum: 10c0/ffbcdcb826954e4a31160d73e28136fa8c55623651cc667b20469b82007fd662ad2a6e8220e56604e6fe53ee99351ee3e179d8be65def5abce942d91b9a28a92
   languageName: node
   linkType: hard
 
-"@wangeditor-next/editor@npm:^5.5.0":
-  version: 5.5.4
-  resolution: "@wangeditor-next/editor@npm:5.5.4"
+"@wangeditor-next/editor@npm:latest":
+  version: 5.6.33
+  resolution: "@wangeditor-next/editor@npm:5.6.33"
   dependencies:
     "@uppy/core": "npm:^2.1.1"
     "@uppy/xhr-upload": "npm:^2.0.3"
-    "@wangeditor-next/basic-modules": "npm:^1.5.2"
-    "@wangeditor-next/code-highlight": "npm:^1.3.0"
-    "@wangeditor-next/core": "npm:^1.7.3"
-    "@wangeditor-next/list-module": "npm:^1.1.8"
-    "@wangeditor-next/table-module": "npm:^1.6.0"
-    "@wangeditor-next/upload-image-module": "npm:^1.1.4"
-    "@wangeditor-next/video-module": "npm:^1.3.7"
-    dom7: "npm:^3.0.0"
+    "@wangeditor-next/basic-modules": "npm:~1.5.33"
+    "@wangeditor-next/code-highlight": "npm:~1.3.30"
+    "@wangeditor-next/core": "npm:~1.7.33"
+    "@wangeditor-next/list-module": "npm:~1.1.39"
+    "@wangeditor-next/table-module": "npm:~1.6.43"
+    "@wangeditor-next/upload-image-module": "npm:~1.1.36"
+    "@wangeditor-next/video-module": "npm:~1.3.39"
+    dom7: "npm:^4.0.0"
     is-hotkey: "npm:^0.2.0"
     lodash.camelcase: "npm:^4.3.0"
     lodash.clonedeep: "npm:^4.5.0"
@@ -3682,67 +3691,67 @@ __metadata:
     lodash.toarray: "npm:^4.4.0"
     nanoid: "npm:^5.0.0"
     slate: "npm:^0.72.0"
-    snabbdom: "npm:^3.1.0"
-  checksum: 10c0/108b65f9a61c53dab40c07e3ceff0bd8d1b90d79f13ac2ec9868ef963b26854f74dc47ea28302dbbb5e1358d3fbd3d6c683b1d69ed58dcdcaf369c725bacc0dc
+    snabbdom: "npm:^3.6.0"
+  checksum: 10c0/a6a81633b93eb8ea3c7ca6718d29634d73f14bbb5e65a6609ce0da712a9faa86d58c5ea958789ce0a88c3d76d8d52afb2a30d67a6d9135e0e9eb65ff7b4efe82
   languageName: node
   linkType: hard
 
-"@wangeditor-next/list-module@npm:^1.1.8":
-  version: 1.1.8
-  resolution: "@wangeditor-next/list-module@npm:1.1.8"
+"@wangeditor-next/list-module@npm:~1.1.39":
+  version: 1.1.39
+  resolution: "@wangeditor-next/list-module@npm:1.1.39"
   peerDependencies:
-    "@wangeditor-next/core": 1.x
-    dom7: ^3.0.0
+    "@wangeditor-next/core": 1.7.33
+    dom7: ^3.0.0 || ^4.0.0
     slate: ^0.72.0
-    snabbdom: ^3.1.0
-  checksum: 10c0/f4cfee2ab0e14730c7f59f1d5f4252bbdf4dfe597df09dfa3c7ed30380a7218961e162317947ce9ea741e4d099d6610d9e1ab73a8d301a91e7dc3d2a0f744d0a
+    snabbdom: ^3.6.0
+  checksum: 10c0/0d4e26e2cea0ec41b545d5ed041533b5993b831f3a2f226fad8751b90a4ba919a33c655bf1f63a5bb81f7a7084ee263d8c081896481c1ece6ebe263170e9abac
   languageName: node
   linkType: hard
 
-"@wangeditor-next/table-module@npm:^1.6.0":
-  version: 1.6.0
-  resolution: "@wangeditor-next/table-module@npm:1.6.0"
+"@wangeditor-next/table-module@npm:~1.6.43":
+  version: 1.6.43
+  resolution: "@wangeditor-next/table-module@npm:1.6.43"
   peerDependencies:
-    "@wangeditor-next/core": 1.x
-    dom7: ^3.0.0
+    "@wangeditor-next/core": 1.7.33
+    dom7: ^3.0.0 || ^4.0.0
     lodash.debounce: ^4.0.8
     lodash.isequal: ^4.5.0
     lodash.throttle: ^4.1.1
     nanoid: ^5.0.0
     slate: ^0.72.0
-    snabbdom: ^3.1.0
-  checksum: 10c0/d4b1dc3732a194148e2e09fbc0ad337e22ece181ff80a54807f33ab4770626dc9e35c5a1670a45bd314ddfe56076b02741879322bbbb4ef71cfa9e9a9a2f4430
+    snabbdom: ^3.6.0
+  checksum: 10c0/8f24c76f52acb70091c043f2c1564d8c62204ac9234f371e54a3e1db97ee1b6fc0763f2327027b0e9cba6f187a05c05d2f641751933926b42252ccdc332768b1
   languageName: node
   linkType: hard
 
-"@wangeditor-next/upload-image-module@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@wangeditor-next/upload-image-module@npm:1.1.4"
+"@wangeditor-next/upload-image-module@npm:~1.1.36":
+  version: 1.1.36
+  resolution: "@wangeditor-next/upload-image-module@npm:1.1.36"
   peerDependencies:
     "@uppy/core": ^2.0.3
     "@uppy/xhr-upload": ^2.0.3
-    "@wangeditor-next/basic-modules": 1.x
-    "@wangeditor-next/core": 1.x
-    dom7: ^3.0.0
+    "@wangeditor-next/basic-modules": 1.5.33
+    "@wangeditor-next/core": 1.7.33
+    dom7: ^3.0.0 || ^4.0.0
     lodash.foreach: ^4.5.0
     slate: ^0.72.0
-    snabbdom: ^3.1.0
-  checksum: 10c0/2b89710da6f4a38aae173c01f51180caeae41d0114fa43430b8d77c6ca290de87b255656e14b8c76afc5a78601b583e57f06785bf6bb609564795bb78abcf15c
+    snabbdom: ^3.6.0
+  checksum: 10c0/d4691d9b4628b85b02839b7d88735acefbe1ebc2be211adb3cd9bfe08161bb4ebd466aad367f061174fd7679b5abf39c8347c984d1d410c6a439bc64558ded01
   languageName: node
   linkType: hard
 
-"@wangeditor-next/video-module@npm:^1.3.7":
-  version: 1.3.7
-  resolution: "@wangeditor-next/video-module@npm:1.3.7"
+"@wangeditor-next/video-module@npm:~1.3.39":
+  version: 1.3.39
+  resolution: "@wangeditor-next/video-module@npm:1.3.39"
   peerDependencies:
     "@uppy/core": ^2.1.4
     "@uppy/xhr-upload": ^2.0.7
-    "@wangeditor-next/core": 1.x
-    dom7: ^3.0.0
+    "@wangeditor-next/core": 1.7.33
+    dom7: ^3.0.0 || ^4.0.0
     nanoid: ^5.0.0
     slate: ^0.72.0
-    snabbdom: ^3.1.0
-  checksum: 10c0/3a7bf63d963514ac24ccd835b76aa223dc436939c35739594cdb5121572102ec212352bbb91f56dc259355e941b8949267c576d45a96c0a7abc431507cb0df4a
+    snabbdom: ^3.6.0
+  checksum: 10c0/412d3e97e5cbcdda9407816b8e68334d14c6aa01983aca663edbb4e05ecb23317a582ffb41ea1ef7f81e0e1aa0ac67918c9b929a2fc4a5337e0de42a6cc8c988
   languageName: node
   linkType: hard
 
@@ -3759,10 +3768,10 @@ __metadata:
     "@types/react": "npm:^17.0.34"
     "@types/react-dom": "npm:^17.0.11"
     "@vitejs/plugin-react": "npm:^1.0.7"
-    "@wangeditor-next/editor": "npm:^5.5.0"
-    "@wangeditor-next/editor-for-react": "npm:^1.0.2"
-    "@wangeditor-next/yjs": "npm:0.1.1"
-    "@wangeditor-next/yjs-for-react": "npm:0.1.1-beta.1"
+    "@wangeditor-next/editor": "npm:latest"
+    "@wangeditor-next/editor-for-react": "npm:latest"
+    "@wangeditor-next/yjs": "npm:latest"
+    "@wangeditor-next/yjs-for-react": "npm:latest"
     autoprefixer: "npm:^10.4.0"
     clsx: "npm:^1.1.1"
     netlify-cli: "npm:^8.6.0"
@@ -3779,33 +3788,32 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@wangeditor-next/yjs-for-react@npm:0.1.1-beta.1":
-  version: 0.1.1-beta.1
-  resolution: "@wangeditor-next/yjs-for-react@npm:0.1.1-beta.1"
+"@wangeditor-next/yjs-for-react@npm:latest":
+  version: 0.1.44
+  resolution: "@wangeditor-next/yjs-for-react@npm:0.1.44"
   dependencies:
     use-sync-external-store: "npm:^1.2.0"
     y-protocols: "npm:^1.0.5"
   peerDependencies:
-    "@wangeditor-next/core": 1.x
-    "@wangeditor-next/editor": 5.x
-    "@wangeditor-next/yjs": 0.x
-    react: ">=16.8.0"
+    "@wangeditor-next/editor": 5.6.33
+    "@wangeditor-next/yjs": ^0.1.31
+    react: ">=17.0.2"
     slate: ^0.72.0
     yjs: ^13.5.29
-  checksum: 10c0/47b93e9c8e40dc5b1925af7b5f217db331593b7404e86e97f22d8ecd71755782dd568a7bf0a1db26df883641aedd52523965cf8e649dbd60c9104f95fa6ccce3
+  checksum: 10c0/2ff3ac472123b8c211aa74942fa5ee3a85ee4ddac38b811c3e6495cc921b986d7f64a7211cb1572816cf9538ee31f15e9c73975f5c7ae62f9ea03cee39cc68a3
   languageName: node
   linkType: hard
 
-"@wangeditor-next/yjs@npm:0.1.1":
-  version: 0.1.1
-  resolution: "@wangeditor-next/yjs@npm:0.1.1"
+"@wangeditor-next/yjs@npm:latest":
+  version: 0.1.31
+  resolution: "@wangeditor-next/yjs@npm:0.1.31"
   dependencies:
     y-protocols: "npm:^1.0.5"
   peerDependencies:
-    "@wangeditor-next/core": 1.x
+    "@wangeditor-next/core": 1.7.33
     slate: ^0.72.0
     yjs: ^13.5.29
-  checksum: 10c0/37321e97b4bd4948b068dff349661a4ef572a22463cdb885fb6a63d8e36d4d6d9a414908922a1902346703da62a03e8eaf5e90805edfeb91250d550d116b3c67
+  checksum: 10c0/72f6768e34f1f6934356e17e936104023dd0581003c496ad0c4acb20fdec1f72b771d2ef51371767a8046f222ff9393d41891edc80a6aeab030cf2c4bb50661d
   languageName: node
   linkType: hard
 
@@ -5311,10 +5319,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compute-scroll-into-view@npm:^1.0.20":
-  version: 1.0.20
-  resolution: "compute-scroll-into-view@npm:1.0.20"
-  checksum: 10c0/19034322590bfce59cb6939b3603e7aaf6f0d4128b8627bbc136e71c8714905e2f8bf2ba0cb7f153c6e8cdb8ad907ffd6d0188ccc7625dc05790a59ae6a81f01
+"compute-scroll-into-view@npm:^3.0.2":
+  version: 3.1.1
+  resolution: "compute-scroll-into-view@npm:3.1.1"
+  checksum: 10c0/59761ed62304a9599b52ad75d0d6fbf0669ee2ab7dd472fdb0ad9da36628414c014dea7b5810046560180ad30ffec52a953d19297f66a1d4f3aa0999b9d2521d
   languageName: node
   linkType: hard
 
@@ -6084,12 +6092,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dom7@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "dom7@npm:3.0.0"
+"dom7@npm:^4.0.0":
+  version: 4.0.6
+  resolution: "dom7@npm:4.0.6"
   dependencies:
-    ssr-window: "npm:^3.0.0-alpha.1"
-  checksum: 10c0/c64c64e8ed99a6e1e9a8754b37c8effa5e5e3f192b275e7853cb06bf3c670fd6595fc61c87e75553773f350a04b9d45e2964c9b7b62b8fec867766c1a3b6df41
+    ssr-window: "npm:^4.0.0"
+  checksum: 10c0/97fdb16e93a1b80ee154a7fa074d3d842e925c003c814da9e938dde270cc4cefa1bfc806718e0a2afd42d6b2359b7e714aab04cb1c7580f3414ebf20686c2d00
   languageName: node
   linkType: hard
 
@@ -8053,10 +8061,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-void-elements@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "html-void-elements@npm:2.0.1"
-  checksum: 10c0/1079c9e9fdb3b6a2481f2a282098a0183f3d45bf2b9d76c7dfc1671ee1857d7bacdd04fd8c6e2418f5ff550c30cabf97a010fe31ec402d0c89189807b48e6d79
+"html-void-elements@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "html-void-elements@npm:3.0.0"
+  checksum: 10c0/a8b9ec5db23b7c8053876dad73a0336183e6162bf6d2677376d8b38d654fdc59ba74fdd12f8812688f7db6fad451210c91b300e472afc0909224e0a44c8610d2
   languageName: node
   linkType: hard
 
@@ -8173,12 +8181,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^20.4.0":
-  version: 20.6.1
-  resolution: "i18next@npm:20.6.1"
+"i18next@npm:^23.0.0":
+  version: 23.16.8
+  resolution: "i18next@npm:23.16.8"
   dependencies:
-    "@babel/runtime": "npm:^7.12.0"
-  checksum: 10c0/f34b58a2b6cfb1b3337454610878ab27e4aeba58f5a7d1f970d9c550a8239fcbd24951cb3072dab8e7bdffbdc026248681b37507665d256af177b8ca6ec7b1a8
+    "@babel/runtime": "npm:^7.23.2"
+  checksum: 10c0/57d249191e8a39bbbbe190cfa2e2bb651d0198e14444fe80453d3df8d02927de3c147c77724e9ae6c72fa241898cd761e3fdcd55d053db373471f1ac084bf345
   languageName: node
   linkType: hard
 
@@ -12535,12 +12543,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scroll-into-view-if-needed@npm:^2.2.28":
-  version: 2.2.31
-  resolution: "scroll-into-view-if-needed@npm:2.2.31"
+"scroll-into-view-if-needed@npm:^3.0.0":
+  version: 3.1.0
+  resolution: "scroll-into-view-if-needed@npm:3.1.0"
   dependencies:
-    compute-scroll-into-view: "npm:^1.0.20"
-  checksum: 10c0/d44c518479505e37ab5b8b4a5aef9130edd8745f8ba9ca291ff0d8358bc89b63da8c30434f35c097384e455702bfe4acbe8b82dfb8b860a971adcae084c5b2f7
+    compute-scroll-into-view: "npm:^3.0.2"
+  checksum: 10c0/1f46b090e1e04fcfdef1e384f6d7e615f9f84d4176faf4dbba7347cc0a6e491e5d578eaf4dbe9618dd3d8d38efafde58535b3e00f2a21ce4178c14be364850ff
   languageName: node
   linkType: hard
 
@@ -12746,14 +12754,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slate-history@npm:^0.66.0":
-  version: 0.66.0
-  resolution: "slate-history@npm:0.66.0"
+"slate-history@npm:^0.109.0":
+  version: 0.109.0
+  resolution: "slate-history@npm:0.109.0"
   dependencies:
     is-plain-object: "npm:^5.0.0"
   peerDependencies:
     slate: ">=0.65.3"
-  checksum: 10c0/132e79a072072768cbba36fbf37348f3398d1efeb6a0695c2bd641a9b00aad281889661053c6fcafb4b03f64a3e5285b6d9f4ae8d70b49212e05a9a56309a042
+  checksum: 10c0/70c97de22100307211ca9d647bc4f775899388d1cbab800a26557ef91be4d894bbe51ddd2542e57137713e95a360e41f05af61d90ef9e14b920e19fc2cf7a72d
   languageName: node
   linkType: hard
 
@@ -12792,7 +12800,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"snabbdom@npm:^3.1.0":
+"snabbdom@npm:^3.6.0":
   version: 3.6.2
   resolution: "snabbdom@npm:3.6.2"
   checksum: 10c0/5b6763128458fde2ec3c32d3753650db7ab2a66ebc233696e201c65d41e976fdce038857056ccdf12c23540fd3745bbdf48c4819f061878d7546c2a5fcd9b1ca
@@ -13000,10 +13008,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ssr-window@npm:^3.0.0-alpha.1":
-  version: 3.0.0
-  resolution: "ssr-window@npm:3.0.0"
-  checksum: 10c0/d60efa4bf1e8de03c2410ba81976dfec02a084a44a8f952d9cac794e806e87dc7dcd6033f26fdd35430851bd358f39e8d9625404683b8a1792b46711fc1eb382
+"ssr-window@npm:^4.0.0":
+  version: 4.0.2
+  resolution: "ssr-window@npm:4.0.2"
+  checksum: 10c0/e91f690f42ab2d4e36577a631a9d7b9bd20864ab99c1394481f64c5a0ae6922165ac0a06228560c2ccdd4f68338e795f2fd3cc16fbf9bfcc9c561bb89eb237cd
   languageName: node
   linkType: hard
 
