@@ -36,7 +36,8 @@ export const EDITOR_TO_CONFIG = new WeakMap<IDomEditor, IEditorConfig>()
 export const IS_FIRST_PATCH = new WeakMap<TextArea, boolean>()
 export const TEXTAREA_TO_PATCH_FN = new WeakMap<TextArea, PatchFn>()
 export const TEXTAREA_TO_VNODE = new WeakMap<TextArea, VNode>()
-
+export const NODE_TO_VNODE = new WeakMap<Node, [number, VNode]>()
+export const NODE_TO_HTML = new WeakMap<Node, String>()
 /**
  * Two weak maps that allow us rebuild a path given a node. They are populated
  * at render time such that after a render occurs we can always backtrack.

@@ -17,7 +17,10 @@ import {
   NODE_TO_ELEMENT,
   ELEMENT_TO_NODE,
   EDITOR_TO_WINDOW,
+  NODE_TO_VNODE,
+  NODE_TO_INDEX
 } from '../utils/weak-maps'
+
 
 function genElemId(id: number) {
   return `w-e-textarea-${id}`
@@ -58,7 +61,6 @@ function genRootElem(elemId: string, readOnly = false): Dom7Array {
 
   return $elem
 }
-
 /**
  * 获取 editor.children 渲染 DOM
  * @param textarea textarea
@@ -72,9 +74,23 @@ function updateView(textarea: TextArea, editor: IDomEditor) {
   // 生成 newVnode
   const newVnode = genRootVnode(elemId, readOnly)
   const content = editor.children || []
+
   newVnode.children = content.map((node, i) => {
-    let vnode = node2Vnode(node, i, editor, editor)
+    if (NODE_TO_VNODE.has(node)) {
+      const [index, cached] = NODE_TO_VNODE.get(node as any) as any
+      if (cached) {
+        if (index !== i) {
+            // 设置相关 weakMap 信息
+            NODE_TO_INDEX.set(node, i)
+            NODE_TO_VNODE.set(node, [i, cached])
+        }
+        return cached
+        }
+      }
+    const vnode = node2Vnode(node, i, editor, editor)
+
     normalizeVnodeData(vnode) // 整理 vnode.data 以符合 snabbdom 的要求
+    NODE_TO_VNODE.set(node as any, [i, vnode])
     return vnode
   })
 
