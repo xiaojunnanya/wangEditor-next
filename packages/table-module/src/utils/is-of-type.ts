@@ -17,5 +17,5 @@ export function isOfType<T extends WithType<Element>>(
   const options = DEFAULT_WITH_TABLE_OPTIONS
   const elementTypes = types.map(type => options?.blocks?.[type])
 
-  return (node: Node): boolean => isElement(node) && elementTypes.includes(node.type as any)
+  return (node: Node): boolean => isElement(node) && elementTypes.includes(node.type)
 }

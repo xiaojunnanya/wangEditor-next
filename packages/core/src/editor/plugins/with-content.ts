@@ -20,7 +20,9 @@ import $, {
 } from '../../utils/dom'
 import { Key } from '../../utils/key'
 import { findCurrentLineRange } from '../../utils/line'
-import { EDITOR_TO_SELECTION, NODE_TO_KEY, NODE_TO_VNODE, NODE_TO_HTML } from '../../utils/weak-maps'
+import {
+  EDITOR_TO_SELECTION, NODE_TO_HTML, NODE_TO_KEY, NODE_TO_VNODE,
+} from '../../utils/weak-maps'
 import { DomEditor } from '../dom-editor'
 import { ElementWithId } from '../interface'
 
@@ -119,7 +121,7 @@ export const withContent = <T extends Editor>(editor: T) => {
 
       NODE_TO_KEY.set(node, key)
       // 删除node对应的 vnode 和 html
-      if ((node as any)?.type) {
+      if ('type' in node) {
         if (NODE_TO_VNODE.has(node)) {
           NODE_TO_VNODE.delete(node)
         }
@@ -193,6 +195,7 @@ export const withContent = <T extends Editor>(editor: T) => {
       NODE_TO_HTML.set(child, htmlStr)
       return htmlStr
     }).join('')
+
     return html
   }
 
