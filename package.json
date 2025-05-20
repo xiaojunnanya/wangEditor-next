@@ -2,6 +2,9 @@
   "name": "@wangeditor-next/wangeditor",
   "private": true,
   "packageManager": "yarn@4.5.3",
+  "engines": {
+    "node": "^18.0.0"
+  },
   "browserslist": [
     "defaults",
     "not IE 11"
