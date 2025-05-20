@@ -75,7 +75,7 @@ function withCodeBlock<T extends IDomEditor>(editor: T): T {
     // 获取选中的文本
     const [start, end] = [selection.anchor, selection.focus].sort((a, b) => a.offset - b.offset)
     // @ts-ignore
-    const codeText = (codeNode.children[0] as any).text
+    const codeText = (codeNode.children[0]).text
     const lines = codeText.split('\n')
 
     // 计算受影响的行
