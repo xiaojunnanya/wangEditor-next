@@ -184,12 +184,22 @@ export const withContent = <T extends Editor>(editor: T) => {
   // 获取 html （去掉了格式化 2021.12.10）
   e.getHtml = (): string => {
     const { children = [] } = e
+    const { skipCacheTypes = ['list-item'] } = e.getConfig()
 
     const html = children.map(child => {
-      // 先从缓存中获取
+      const nodeType = DomEditor.getNodeType(child)
+
+      // 如果节点类型在跳过缓存列表中，不使用缓存
+      if (skipCacheTypes.includes(nodeType)) {
+        return node2html(child, e)
+      }
+
+      // 尝试从缓存中获取
       const cached = NODE_TO_HTML.get(child)
 
       if (cached) { return cached }
+
+      // 生成新的HTML并缓存
       const htmlStr = node2html(child, e)
 
       NODE_TO_HTML.set(child, htmlStr)

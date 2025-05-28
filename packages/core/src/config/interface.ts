@@ -235,6 +235,9 @@ export interface IEditorConfig {
 
   // 自由扩展其他配置
   EXTEND_CONF?: any
+
+  // 跳过缓存的节点类型列表
+  skipCacheTypes?: string[]
 }
 
 /**

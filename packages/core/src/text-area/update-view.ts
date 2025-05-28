@@ -4,7 +4,7 @@
  */
 
 import { h, VNode } from 'snabbdom'
-
+import { Element } from 'slate'
 import { IDomEditor } from '../editor/interface'
 import { node2Vnode } from '../render/node2Vnode'
 import $, { Dom7Array, getDefaultView, getElementById } from '../utils/dom'
@@ -95,6 +95,13 @@ function updateView(textarea: TextArea, editor: IDomEditor) {
     const vnode = node2Vnode(node, i, editor, editor)
 
     normalizeVnodeData(vnode) // 整理 vnode.data 以符合 snabbdom 的要求
+
+    const { skipCacheTypes = ['list-item'] } = editor.getConfig()
+
+    if (Element.isElement(node) && skipCacheTypes.includes(node.type)) {
+      // 如果是跳过缓存的类型，则不缓存
+      return vnode
+    }
     NODE_TO_VNODE.set(node, [i, vnode])
     return vnode
   })
