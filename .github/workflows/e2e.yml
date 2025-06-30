@@ -67,6 +67,7 @@ jobs:
       # 运行 Cypress 测试
       - uses: cypress-io/github-action@v6
         with:
+          install: false
           browser: chrome
           start: pnpm run example
           wait-on: 'http://localhost:8881/examples/default-mode.html'
