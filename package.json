@@ -56,7 +56,6 @@
     "@rollup/plugin-node-resolve": "^15.0.0",
     "@rollup/plugin-replace": "^6.0.0",
     "@rollup/plugin-terser": "^0.4.0",
-    "@rollup/rollup-linux-x64-gnu": "^4.44.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
