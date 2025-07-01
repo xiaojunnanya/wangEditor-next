@@ -55,7 +55,7 @@ jobs:
             **/.turbo
             /home/runner/.cache/Cypress
             ~/.pnpm-store
-          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-node-18-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       # 安装依赖
       - name: Install dependencies
