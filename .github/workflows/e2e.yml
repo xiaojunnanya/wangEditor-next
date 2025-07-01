@@ -42,6 +42,8 @@ jobs:
       # 安装 pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
 
       # 加载依赖缓存
       - name: Load cached dependencies
@@ -51,7 +53,7 @@ jobs:
           path: |
             **/node_modules
             **/.turbo
-            /home/runner/.cache/Cypress
+            /root/.cache/Cypress
             ~/.pnpm-store
           key: ${{ runner.os }}-node-18-${{ hashFiles('**/pnpm-lock.yaml') }}
 
@@ -59,6 +61,10 @@ jobs:
       # 安装项目依赖
       - name: Install dependencies
         run: pnpm install
+
+      # 确保 Cypress 二进制文件正确安装
+      - name: Install Cypress binary
+        run: npx cypress install
 
       # 构建项目
       - name: Build packages
