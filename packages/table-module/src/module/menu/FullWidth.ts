@@ -19,14 +19,10 @@ class TableFullWidth implements IButtonMenu {
   readonly tag = 'button'
 
   getValue(editor: IDomEditor): string | boolean {
-    const tableNode = DomEditor.getSelectedNodeByType(editor, 'table') as TableElement
+    const tableNode = DomEditor.getSelectedNodeByType(editor, 'table')
 
-    if (!tableNode) {
-      return false
-    }
-
-    // 检查表格是否已经是全宽（width为100%或auto）
-    return tableNode.width === '100%' || tableNode.width === 'auto'
+    if (tableNode == null) { return false }
+    return (tableNode as TableElement).width === '100%'
   }
 
   isActive(editor: IDomEditor): boolean {
