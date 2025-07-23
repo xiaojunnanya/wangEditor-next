@@ -43,5 +43,8 @@
   "peerDependencies": {
     "@wangeditor-next/editor": "5.6.39",
     "snabbdom": "^3.6.0"
+  },
+  "devDependencies": {
+    "@wangeditor-next-shared/rollup-config": "workspace:^"
   }
 }

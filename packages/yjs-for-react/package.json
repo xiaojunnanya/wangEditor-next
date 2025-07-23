@@ -48,7 +48,8 @@
     "size-stats": "cross-env NODE_ENV=production:size_stats rollup -c rollup.config.js"
   },
   "devDependencies": {
-    "@types/use-sync-external-store": "^0.0.6"
+    "@types/use-sync-external-store": "^0.0.6",
+    "@wangeditor-next-shared/rollup-config": "workspace:^"
   },
   "bugs": {
     "url": "https://github.com/wangeditor-next/wangeditor-next/issues"
