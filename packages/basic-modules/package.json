@@ -55,6 +55,7 @@
     "is-url": "^1.2.4"
   },
   "devDependencies": {
-    "@types/is-url": "^1.2.29"
+    "@types/is-url": "^1.2.29",
+    "@wangeditor-next-shared/rollup-config": "workspace:^"
   }
 }

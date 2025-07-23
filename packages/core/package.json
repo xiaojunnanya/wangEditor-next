@@ -68,6 +68,7 @@
     "slate-history": "^0.109.0"
   },
   "devDependencies": {
-    "@types/is-hotkey": "^0.1.2"
+    "@types/is-hotkey": "^0.1.2",
+    "@wangeditor-next-shared/rollup-config": "workspace:^"
   }
 }

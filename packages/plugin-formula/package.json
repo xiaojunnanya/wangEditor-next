@@ -41,6 +41,7 @@
     "url": "https://github.com/wangeditor-next/wangeditor-next/issues"
   },
   "devDependencies": {
+    "@wangeditor-next-shared/rollup-config": "workspace:^",
     "katex": "^0.16.0"
   },
   "peerDependencies": {

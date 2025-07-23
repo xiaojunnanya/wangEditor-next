@@ -45,5 +45,8 @@
     "dom7": "^3.0.0 || ^4.0.0",
     "slate": "^0.82.0",
     "snabbdom": "^3.6.0"
+  },
+  "devDependencies": {
+    "@wangeditor-next-shared/rollup-config": "workspace:^"
   }
 }
