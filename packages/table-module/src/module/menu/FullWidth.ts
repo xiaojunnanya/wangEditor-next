@@ -76,8 +76,8 @@ class TableFullWidth implements IButtonMenu {
       return Math.floor(ratio * containerWidth)
     })
 
-    // 确保最小宽度限制（每列至少10px）
-    const minWidth = 10
+    // 确保最小宽度限制（每列至少60px）
+    const minWidth = 60
     const adjustedWithMinWidth = adjustedColumnWidths.map(width => Math.max(minWidth, width))
 
     // 如果调整后的总宽度超过容器宽度，按比例缩小
