@@ -60,6 +60,20 @@
     }
   }
 
+        .row-resizer {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          top: 0px;
+          left: 0px;
+          width: 0;
+          height: 0;
+          z-index: 1;
+    
+          .row-resizer-item {
+            position: relative;
+          }
+        }
   .resizer-line-hotzone {
     cursor: col-resize;
     position: absolute;
@@ -78,6 +92,20 @@
     }
   }
 
+        .row-resizer .resizer-line-hotzone {
+          cursor: row-resize;
+          width: auto;
+          height: 6px;
+          right: auto;
+          bottom: 0px;
+    
+          .resizer-line {
+            height: 2px;
+            width: 100%;
+            margin-left: 0;
+            margin-top: 5px;
+          }
+        }
   .resizer-line-hotzone.visible {
     visibility: visible;
   }

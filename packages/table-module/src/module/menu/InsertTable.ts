@@ -48,6 +48,7 @@ function genTableNode(editor: IDomEditor, rowNum: number, colNum: number): Table
     width: tableFullWidth?.selected ? '100%' : 'auto',
     children: rows,
     columnWidths,
+    rowHeights: Array(rowNum).fill(30), // 默认每行30px高度
   }
 }
 

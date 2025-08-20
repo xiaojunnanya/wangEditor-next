@@ -21,6 +21,8 @@ function tableToHtml(elemNode: Element, childrenHtml: string): string {
 }
 
 function tableRowToHtml(elem: Element, childrenHtml: string): string {
+  // 由于在HTML输出时无法直接获取父节点信息，这里暂时不处理行高
+  // 行高信息会在渲染时通过CSS样式应用
   return `<tr>${childrenHtml}</tr>`
 }
 

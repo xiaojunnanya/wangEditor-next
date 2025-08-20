@@ -12,7 +12,7 @@ import {
 
 import { ADD_ROW_SVG } from '../../constants/svg'
 import { filledMatrix } from '../../utils'
-import { TableCellElement, TableRowElement } from '../custom-types'
+import { TableCellElement, TableElement, TableRowElement } from '../custom-types'
 
 class InsertRow implements IButtonMenu {
   readonly title = t('tableModule.insertRow')
@@ -136,6 +136,25 @@ class InsertRow implements IButtonMenu {
       const newRowPath = Path.next(rowPath)
 
       Transforms.insertNodes(editor, newRow, { at: newRowPath })
+
+      // 调整表格的 rowHeights
+      const [tableEntry] = Editor.nodes(editor, {
+        match: n => DomEditor.checkNodeType(n, 'table'),
+        universal: true,
+      })
+
+      if (tableEntry) {
+        const [elemNode, tablePath] = tableEntry
+        const { rowHeights = [] } = elemNode as TableElement
+        const adjustRowHeights = [...rowHeights]
+
+        // 在目标位置插入新行的高度
+        adjustRowHeights.splice(destIndex, 0, 30) // 默认新行高度30px
+
+        Transforms.setNodes(editor, { rowHeights: adjustRowHeights } as TableElement, {
+          at: tablePath,
+        })
+      }
     })
   }
 }

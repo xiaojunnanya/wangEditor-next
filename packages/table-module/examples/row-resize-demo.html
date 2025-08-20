@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表格行高调整功能演示</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .description {
+      background: #e8f4fd;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #2196F3;
+    }
+
+    .description h3 {
+      margin-top: 0;
+      color: #1976D2;
+    }
+
+    .description ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .description li {
+      margin: 5px 0;
+    }
+
+    #editor {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      min-height: 400px;
+    }
+
+    .tips {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 5px;
+    }
+
+    .tips h4 {
+      margin-top: 0;
+      color: #856404;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>表格行高调整功能演示</h1>
+
+    <div class="description">
+      <h3>功能说明</h3>
+      <p>这个演示展示了 wangEditor-next 表格模块新增的行高调整功能：</p>
+      <ul>
+        <li><strong>行高拖拽调整</strong>：鼠标悬停在表格行边界时，会显示行高调整器</li>
+        <li><strong>实时预览</strong>：拖拽时可以实时看到行高的变化</li>
+        <li><strong>智能调整</strong>：支持相邻行的高度调整，保持表格整体结构</li>
+        <li><strong>最小高度限制</strong>：每行最小高度为20px，确保内容可读性</li>
+        <li><strong>等比例调整</strong>：拖拽最底部行时，其他行会按比例调整</li>
+      </ul>
+    </div>
+
+    <div id="editor"></div>
+
+    <div class="tips">
+      <h4>使用提示</h4>
+      <ul>
+        <li>将鼠标移动到表格行之间的边界线上</li>
+        <li>当鼠标变为上下箭头时，按住鼠标左键拖拽</li>
+        <li>拖拽中间行时，只会调整相邻两行的高度</li>
+        <li>拖拽最底部行时，所有行会按比例调整</li>
+        <li>每行最小高度为20px，无法拖拽到更小</li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="module">
+    import {createEditor, createToolbar} from '@wangeditor-next/editor'
+    import tableModule from '@wangeditor-next/table-module'
+
+    // 创建编辑器
+    const editor = createEditor({
+      selector: '#editor',
+      html: `
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>第一行第一列</td>
+                            <td>第一行第二列</td>
+                            <td>第一行第三列</td>
+                        </tr>
+                        <tr>
+                            <td>第二行第一列<br>多行内容</td>
+                            <td>第二行第二列</td>
+                            <td>第二行第三列</td>
+                        </tr>
+                        <tr>
+                            <td>第三行第一列</td>
+                            <td>第三行第二列<br>更多内容<br>测试行高</td>
+                            <td>第三行第三列</td>
+                        </tr>
+                        <tr>
+                            <td>第四行第一列</td>
+                            <td>第四行第二列</td>
+                            <td>第四行第三列</td>
+                        </tr>
+                    </tbody>
+                </table>
+            `,
+      config: {
+        placeholder: '请输入内容...',
+        MENU_CONF: {
+          insertTable: {
+            tableHeader: {
+              selected: true
+            },
+            tableFullWidth: {
+              selected: false
+            }
+          }
+        }
+      },
+      modules: [tableModule]
+    })
+
+    // 创建工具栏
+    const toolbar = createToolbar({
+      editor,
+      selector: '#toolbar',
+      config: {
+        toolbarKeys: [
+          'insertTable',
+          'insertTableRow',
+          'deleteTableRow',
+          'insertTableCol',
+          'deleteTableCol',
+          'deleteTable'
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>

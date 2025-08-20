@@ -107,6 +107,13 @@ function parseTableHtml(
     // @ts-ignore
     children: children.filter(child => DomEditor.getNodeType(child) === 'table-row'),
   }
+
+  // 初始化行高数组
+  const rowCount = tableELement.children.length
+
+  if (rowCount > 0) {
+    tableELement.rowHeights = Array(rowCount).fill(30) // 默认每行30px高度
+  }
   const tdList = $elem.find('tr')[0]?.children || []
   const colgroupElments: HTMLCollection = $elem.find('colgroup')[0]?.children || null
   // @ts-ignore

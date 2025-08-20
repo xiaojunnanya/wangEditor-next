@@ -12,7 +12,7 @@ import {
 
 import { DEL_ROW_SVG } from '../../constants/svg'
 import { filledMatrix } from '../../utils'
-import { TableCellElement } from '../custom-types'
+import { TableCellElement, TableElement } from '../custom-types'
 
 class DeleteRow implements IButtonMenu {
   readonly title = t('tableModule.deleteRow')
@@ -178,6 +178,25 @@ class DeleteRow implements IButtonMenu {
 
       // 删除当前行
       Transforms.removeNodes(editor, { at: rowPath })
+
+      // 调整表格的 rowHeights
+      const [tableEntry] = Editor.nodes(editor, {
+        match: n => DomEditor.checkNodeType(n, 'table'),
+        universal: true,
+      })
+
+      if (tableEntry) {
+        const [elemNode, tablePath] = tableEntry
+        const { rowHeights = [] } = elemNode as TableElement
+        const adjustRowHeights = [...rowHeights]
+
+        // 删除对应行的高度
+        adjustRowHeights.splice(trIndex, 1)
+
+        Transforms.setNodes(editor, { rowHeights: adjustRowHeights } as TableElement, {
+          at: tablePath,
+        })
+      }
 
       // 在下一行（现在变成了当前行）的对应位置插入新单元格
       if (cellsToInsert.length > 0) {

@@ -47,11 +47,12 @@ export function observerTableResize(editor: IDomEditor, elm: Node | undefined) {
 
     if (table) {
       resizeObserver = new ResizeObserver(([{ contentRect }]) => {
-        // 当非拖动引起的宽度变化，需要调整 columnWidths
+        // 当非拖动引起的宽度和高度变化，需要调整 columnWidths 和 rowHeights
         Transforms.setNodes(
           editor,
           {
             scrollWidth: contentRect.width,
+            scrollHeight: contentRect.height,
             height: contentRect.height,
           } as TableElement,
           { mode: 'highest' },

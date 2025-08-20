@@ -39,9 +39,16 @@ export type TableElement = {
 
   /** resize bar */
   scrollWidth?: number
+  scrollHeight?: number // 用于设置行高 resize-bar 高度
   height?: number // 用于设置 resize-bar 高度
   resizingIndex?: number // 用于标记 resize-bar index
   isResizing?: boolean | null //  用于设置 index resize-bar 的 highlight 属性
   isHoverCellBorder?: boolean // 用于设置 index resize-bar 的 visible 属性
   columnWidths?: number[]
+
+  /** row height resize bar */
+  rowHeights?: number[] // 行高数组
+  rowResizingIndex?: number // 用于标记行高 resize-bar index
+  isRowResizing?: boolean | null // 用于设置行高 index resize-bar 的 highlight 属性
+  isHoverRowBorder?: boolean // 用于设置行高 index resize-bar 的 visible 属性
 }

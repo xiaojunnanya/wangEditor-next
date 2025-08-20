@@ -20,6 +20,11 @@ import {
   unObserveTableResize,
 } from '../column-resize'
 import { TableElement } from '../custom-types'
+import {
+  handleRowBorderHighlight,
+  handleRowBorderMouseDown,
+  handleRowBorderVisible,
+} from '../row-resize'
 import { TableCursor } from '../table-cursor'
 
 /**
@@ -57,15 +62,20 @@ function renderTable(elemNode: SlateElement, children: VNode[] | null, editor: I
   // 是否可编辑
   const editable = getContentEditable(editor, elemNode)
 
-  // 宽度
+  // 宽度和高度
   const {
     width: tableWidth = 'auto',
     height,
     columnWidths = [],
+    rowHeights = [],
     scrollWidth = 0,
+    scrollHeight = 0,
     isHoverCellBorder,
     resizingIndex,
     isResizing,
+    isHoverRowBorder,
+    rowResizingIndex,
+    isRowResizing,
   } = elemNode as TableElement
 
   // 光标是否选中
@@ -124,7 +134,10 @@ function renderTable(elemNode: SlateElement, children: VNode[] | null, editor: I
         }}
         on={{
           mousemove: debounce(
-            (e: MouseEvent) => handleCellBorderVisible(editor, elemNode, e, scrollWidth),
+            (e: MouseEvent) => {
+              handleCellBorderVisible(editor, elemNode, e, scrollWidth)
+              handleRowBorderVisible(editor, elemNode, e, scrollHeight)
+            },
             25,
           ),
         }}
@@ -170,6 +183,30 @@ function renderTable(elemNode: SlateElement, children: VNode[] | null, editor: I
                   mouseenter: (e: MouseEvent) => handleCellBorderHighlight(editor, e),
                   mouseleave: (e: MouseEvent) => handleCellBorderHighlight(editor, e),
                   mousedown: (_e: MouseEvent) => handleCellBorderMouseDown(editor, elemNode),
+                }}
+              >
+                <div className="resizer-line"></div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      <div className="row-resizer" contentEditable={false}>
+        {rowHeights.map((rowHeight, index) => {
+          return (
+            <div className="row-resizer-item" style={{ minHeight: `${rowHeight}px` }}>
+              <div
+                className={
+                  `resizer-line-hotzone ${
+                    isHoverRowBorder && index === rowResizingIndex ? 'visible ' : ''
+                  }${isRowResizing && index === rowResizingIndex ? 'highlight' : ''}`
+                }
+                style={{ width: `${scrollWidth || columnWidths.reduce((a, b) => a + b, 0)}px` }}
+                on={{
+                  mouseenter: (e: MouseEvent) => handleRowBorderHighlight(editor, e),
+                  mouseleave: (e: MouseEvent) => handleRowBorderHighlight(editor, e),
+                  mousedown: (_e: MouseEvent) => handleRowBorderMouseDown(editor, elemNode),
                 }}
               >
                 <div className="resizer-line"></div>
