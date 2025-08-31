@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.7.45
+
+### Patch Changes
+
+- 7808410: feat(table): 添加行拖动和调整高度功能
+
 ## 1.7.44
 
 ### Patch Changes

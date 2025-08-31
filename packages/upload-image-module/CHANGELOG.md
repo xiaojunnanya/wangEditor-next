@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.1.48
+
+### Patch Changes
+
+- 7808410: feat(table): 添加行拖动和调整高度功能
+- Updated dependencies [7808410]
+  - @wangeditor-next/basic-modules@1.5.45
+  - @wangeditor-next/core@1.7.45
+
 ## 1.1.47
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @wangeditor-next/yjs
 
+## 0.1.43
+
+### Patch Changes
+
+- 7808410: feat(table): 添加行拖动和调整高度功能
+- Updated dependencies [7808410]
+  - @wangeditor-next/core@1.7.45
+
 ## 0.1.42
 
 ### Patch Changes
