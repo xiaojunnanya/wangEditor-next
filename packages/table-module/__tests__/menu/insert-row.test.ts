@@ -188,4 +188,137 @@ describe('Table Module Insert Row Menu', () => {
     expect(insertRowMenu.exec(editor, '')).toBeUndefined()
     expect(insertNodesFn).not.toBeCalled()
   })
+
+  test('should create new row with default height when inserting', () => {
+    const insertRowMenu = new InsertRow()
+    const editor = createEditor()
+
+    // Mock editor config
+    vi.spyOn(editor, 'getMenuConfig').mockReturnValue({
+      minRowHeight: 35,
+    })
+
+    // Mock isDisabled to return false
+    vi.spyOn(insertRowMenu, 'isDisabled').mockReturnValue(false)
+
+    // Mock Editor.nodes to return a valid cell entry
+    const fn = function* () {
+      yield [
+        {
+          type: 'table-cell',
+          children: [{ text: '' }],
+        } as slate.Element,
+        [0, 0, 0],
+      ] as slate.NodeEntry<slate.Element>
+    }
+
+    vi.spyOn(slate.Editor, 'nodes').mockReturnValue(fn())
+
+    // Mock DomEditor.getParentNode to return a table row
+    vi.spyOn(core.DomEditor, 'getParentNode').mockImplementation(() => ({
+      type: 'table-row',
+      children: [
+        { type: 'table-cell', children: [{ text: '' }] },
+        { type: 'table-cell', children: [{ text: '' }] },
+      ],
+    }))
+
+    mockedUtils.filledMatrix.mockImplementation(() => {
+      return [
+        [
+          [
+            [{ type: 'table-cell', children: [{ text: '' }] }, [0, 0, 0]],
+            {
+              ttb: 1, btt: 1, rtl: 1, ltr: 1,
+            },
+          ],
+          [
+            [{ type: 'table-cell', children: [{ text: '' }] }, [0, 0, 1]],
+            {
+              ttb: 1, btt: 1, rtl: 1, ltr: 1,
+            },
+          ],
+        ],
+      ]
+    })
+
+    const insertNodesFn = vi.fn()
+
+    vi.spyOn(slate.Transforms, 'insertNodes').mockImplementation(insertNodesFn)
+
+    insertRowMenu.exec(editor, '')
+
+    // 验证插入的行有正确的高度属性
+    expect(insertNodesFn).toHaveBeenCalledWith(
+      editor,
+      expect.objectContaining({
+        type: 'table-row',
+        height: 35,
+        children: expect.any(Array),
+      }),
+      expect.any(Object),
+    )
+  })
+
+  test('should use default height when minRowHeight is not configured', () => {
+    const insertRowMenu = new InsertRow()
+    const editor = createEditor()
+
+    // Mock editor config without minRowHeight
+    vi.spyOn(editor, 'getMenuConfig').mockReturnValue({})
+
+    // Mock isDisabled to return false
+    vi.spyOn(insertRowMenu, 'isDisabled').mockReturnValue(false)
+
+    // Mock Editor.nodes to return a valid cell entry
+    const fn = function* () {
+      yield [
+        {
+          type: 'table-cell',
+          children: [{ text: '' }],
+        } as slate.Element,
+        [0, 0, 0],
+      ] as slate.NodeEntry<slate.Element>
+    }
+
+    vi.spyOn(slate.Editor, 'nodes').mockReturnValue(fn())
+
+    // Mock DomEditor.getParentNode to return a table row
+    vi.spyOn(core.DomEditor, 'getParentNode').mockImplementation(() => ({
+      type: 'table-row',
+      children: [
+        { type: 'table-cell', children: [{ text: '' }] },
+      ],
+    }))
+
+    mockedUtils.filledMatrix.mockImplementation(() => {
+      return [
+        [
+          [
+            [{ type: 'table-cell', children: [{ text: '' }] }, [0, 0, 0]],
+            {
+              ttb: 1, btt: 1, rtl: 1, ltr: 1,
+            },
+          ],
+        ],
+      ]
+    })
+
+    const insertNodesFn = vi.fn()
+
+    vi.spyOn(slate.Transforms, 'insertNodes').mockImplementation(insertNodesFn)
+
+    insertRowMenu.exec(editor, '')
+
+    // 验证使用默认高度 30px
+    expect(insertNodesFn).toHaveBeenCalledWith(
+      editor,
+      expect.objectContaining({
+        type: 'table-row',
+        height: 30,
+        children: expect.any(Array),
+      }),
+      expect.any(Object),
+    )
+  })
 })
