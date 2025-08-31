@@ -114,7 +114,9 @@ class InsertRow implements IButtonMenu {
       }
 
       // 拼接新的 row
-      const newRow: TableRowElement = { type: 'table-row', children: [] }
+      const { minRowHeight = 30 } = editor.getMenuConfig('insertTable') || {}
+      const defaultRowHeight = parseInt(minRowHeight.toString(), 10) || 30
+      const newRow: TableRowElement = { type: 'table-row', children: [], height: defaultRowHeight }
 
       // 只为不被合并单元格覆盖的位置创建td元素
       for (let i = 0; i < cellsLength; i += 1) {
@@ -136,6 +138,8 @@ class InsertRow implements IButtonMenu {
       const newRowPath = Path.next(rowPath)
 
       Transforms.insertNodes(editor, newRow, { at: newRowPath })
+
+      // 新插入的行已经在创建时设置了高度属性，无需额外操作
     })
   }
 }

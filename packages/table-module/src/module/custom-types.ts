@@ -30,6 +30,7 @@ export type TableCellElement = {
 export type TableRowElement = {
   type: 'table-row'
   children: TableCellElement[]
+  height?: number // 行高度
 }
 
 export type TableElement = {
@@ -44,4 +45,9 @@ export type TableElement = {
   isResizing?: boolean | null //  用于设置 index resize-bar 的 highlight 属性
   isHoverCellBorder?: boolean // 用于设置 index resize-bar 的 visible 属性
   columnWidths?: number[]
+
+  /** row resize */
+  resizingRowIndex?: number // 用于标记正在调整的行索引
+  isResizingRow?: boolean | null // 用于设置行 resize-bar 的 highlight 属性
+  isHoverRowBorder?: boolean // 用于设置行 resize-bar 的 visible 属性
 }
