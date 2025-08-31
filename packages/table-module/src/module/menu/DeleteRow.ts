@@ -179,6 +179,8 @@ class DeleteRow implements IButtonMenu {
       // 删除当前行
       Transforms.removeNodes(editor, { at: rowPath })
 
+      // 行删除时，对应的行元素及其高度属性会自动被移除，无需额外操作
+
       // 在下一行（现在变成了当前行）的对应位置插入新单元格
       if (cellsToInsert.length > 0) {
         // 删除行后，原来的下一行会移动到rowPath的位置

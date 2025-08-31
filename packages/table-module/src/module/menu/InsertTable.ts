@@ -17,7 +17,9 @@ import { TableCellElement, TableElement, TableRowElement } from '../custom-types
 function genTableNode(editor: IDomEditor, rowNum: number, colNum: number): TableElement {
   // 拼接 rows
   const rows: TableRowElement[] = []
-  const { minWidth = 60, tableFullWidth, tableHeader } = editor.getMenuConfig('insertTable')
+  const {
+    minWidth = 60, minRowHeight = 30, tableFullWidth, tableHeader,
+  } = editor.getMenuConfig('insertTable')
   const columnWidths: number[] = Array(colNum).fill(parseInt(minWidth, 10) || 60)
 
   for (let i = 0; i < rowNum; i += 1) {
@@ -40,6 +42,7 @@ function genTableNode(editor: IDomEditor, rowNum: number, colNum: number): Table
     rows.push({
       type: 'table-row',
       children: cells,
+      height: parseInt(minRowHeight, 10) || 30,
     })
   }
 

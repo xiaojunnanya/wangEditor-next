@@ -8,12 +8,20 @@ import { Element as SlateElement } from 'slate'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { jsx, VNode } from 'snabbdom'
 
+import { TableRowElement } from '../custom-types'
+
 function renderTableRow(
-  _elemNode: SlateElement,
+  elemNode: SlateElement,
   children: VNode[] | null,
   _editor: IDomEditor,
 ): VNode {
-  const vnode = <tr>{children}</tr>
+  const { height } = elemNode as TableRowElement
+
+  const vnode = (
+    <tr style={{ height: height ? `${height}px` : undefined }}>
+      {children}
+    </tr>
+  )
 
   return vnode
 }
