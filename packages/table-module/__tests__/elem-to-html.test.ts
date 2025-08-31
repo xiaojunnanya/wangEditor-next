@@ -83,6 +83,17 @@ describe('TableModule module', () => {
       expect(res).toBe('<tr><td>123</td></tr>')
     })
 
+    test('tableRowToHtmlConf elemToHtml should return html table row string with height style', () => {
+      const element = {
+        type: 'table-row',
+        height: 50,
+        children: [],
+      }
+      const res = tableRowToHtmlConf.elemToHtml(element, '<td>123</td>')
+
+      expect(res).toBe('<tr style="height: 50px"><td>123</td></tr>')
+    })
+
     test('tableToHtmlConf should return object that include "type" and "elemToHtml" property', () => {
       expect(tableToHtmlConf.type).toBe('table')
       expect(typeof tableToHtmlConf.elemToHtml).toBe('function')

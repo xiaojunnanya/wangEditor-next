@@ -51,10 +51,11 @@ export const parseCellHtmlConf = {
 }
 
 function parseRowHtml(
-  _elem: DOMElement,
+  elem: DOMElement,
   children: Descendant[],
   _editor: IDomEditor,
 ): TableRowElement {
+  const $elem = $(elem)
   const tableCellChildren: TableCellElement[] = []
 
   for (let i = 0; i < children.length; i += 1) {
@@ -73,8 +74,12 @@ function parseRowHtml(
     }
   }
 
+  // 解析行高度
+  const height = parseInt(getStyleValue($elem, 'height') || '0', 10) || undefined
+
   return {
     type: 'table-row',
+    height,
     children: tableCellChildren,
   }
 }

@@ -5,7 +5,7 @@
 
 import { Element } from 'slate'
 
-import { TableCellElement, TableElement } from './custom-types'
+import { TableCellElement, TableElement, TableRowElement } from './custom-types'
 
 function tableToHtml(elemNode: Element, childrenHtml: string): string {
   const { width = 'auto', columnWidths, height = 'auto' } = elemNode as TableElement
@@ -21,7 +21,10 @@ function tableToHtml(elemNode: Element, childrenHtml: string): string {
 }
 
 function tableRowToHtml(elem: Element, childrenHtml: string): string {
-  return `<tr>${childrenHtml}</tr>`
+  const { height } = elem as TableRowElement
+  const heightStyle = height ? ` style="height: ${height}px"` : ''
+
+  return `<tr${heightStyle}>${childrenHtml}</tr>`
 }
 
 function tableCellToHtml(cellNode: Element, childrenHtml: string): string {

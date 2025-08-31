@@ -89,6 +89,19 @@ describe('table - parse html', () => {
     })
   })
 
+  it('table row with height', () => {
+    const $tr = $('<tr style="height: 60px"></tr>')
+    const children = [{ type: 'table-cell', children: [{ text: 'hello world' }] }]
+
+    expect($tr[0].matches(parseRowHtmlConf.selector)).toBeTruthy()
+
+    expect(parseRowHtmlConf.parseElemHtml($tr[0], children, editor)).toEqual({
+      type: 'table-row',
+      height: 60,
+      children,
+    })
+  })
+
   it('table', () => {
     const $table = $('<table style="width: 100%;"></table>')
     const children = [
